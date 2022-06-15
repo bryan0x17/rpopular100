@@ -20,7 +20,7 @@ export const Post = (props) => {
             <p>{post.selftext}</p>
             <p className="post-author">Posted by <strong>{post.author} </strong>on {date.toDateString()}</p>
             <p className="post-points">{post.score}</p>
-            <button className="post-comments">{post.num_comments} Comments</button>
+            <button className="post-comments"><a href={postUrl} target="_blank" rel="noreferrer">{post.num_comments} Comments</a></button>
         </div>
     )
 }
