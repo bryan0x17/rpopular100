@@ -5,9 +5,7 @@ export const loadPosts = createAsyncThunk(
     async (after, thunkAPI) => {
         const options = {
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
+            
             body: JSON.stringify(after)
         };
         const url = 'https://www.reddit.com/r/popular.json';
@@ -33,7 +31,7 @@ export const postSlice = createSlice({
     extraReducers: {
         [loadPosts.fulfilled]: (state, action) => {
             state.after = action.payload.data.after;
-            state.posts.concat(action.payload.data.children); 
+            state.posts = action.payload.data.children; 
         }
     }
 });
@@ -41,6 +39,6 @@ export const postSlice = createSlice({
 
 
 export const { addPosts } = postSlice.actions;
-export const { selectAfter } = (state) => state.after;
-export const { selectPosts } = (state) => state.posts;
+export const selectAfter = (state) => state.posts.after;
+export const selectPosts = (state) => state.posts.posts;
 export default postSlice.reducer;
