@@ -5,10 +5,9 @@ export const loadPosts = createAsyncThunk(
     async (after, thunkAPI) => {
         const options = {
             method: 'GET',
-            
             body: JSON.stringify(after)
         };
-        const url = 'https://www.reddit.com/r/popular.json';
+        const url = 'https://www.reddit.com/r/popular.json?limit=100';
         const response = await fetch(url, options);
         const data = await response.json();
         return data;
