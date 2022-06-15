@@ -3,14 +3,17 @@ import './App.css';
 import { NavBar } from './features/navbar/NavBar';
 import { Post } from './features/post/Post';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadPosts, selectPosts } from './features/post/postSlice';
+import { loadPosts, selectAfter, selectPosts } from './features/post/postSlice';
 
 function App() {
 
   const dispatch = useDispatch();
+  const after = useSelector(selectAfter);
+
   useEffect(() => {
     dispatch(loadPosts())
-  }, [dispatch]);
+  }, [dispatch, after]);
+  
   const posts = useSelector(selectPosts);
 
   return (
