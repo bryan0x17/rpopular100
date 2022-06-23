@@ -16,3 +16,9 @@ This app was made using create-react-app with the react-redux template.
 - Blacklist/blocklist for posts from certain subreddits
 - Fix posts that only have a link to an article - right now these posts show nothing
 - Implement infinite scrolling
+
+## Deployment
+
+The app can be run on your local machine using npm, or you can run it on replit below.
+
+[![Run on Repl.it](https://repl.it/badge/github/bryan0x17/shopify_bed_2022)](https://replit.com/@bryan0x17/rpopular100)
